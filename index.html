@@ -13,21 +13,32 @@
             <div class="logo">
                 <img src="img/logo/LOGO.png" />
             </div>
-            <ul class="main nav clean-list flex">
-                <li> <a href="#">Memes</a></li>
-                <li> <a href="#">Gallery</a></li>
-                <li> <a href="#">About</a></li>
+            <ul class="main-nav clean-list flex">
+                <li class="nav-li"> <a href="#">Memes</a></li>
+                <li class="nav-li"> <a href="#" class="active">Gallery</a></li>
+                <li class="nav-li"> <a href="#">About</a></li>
             </ul>
         </header>
     </div>
     <main class="gallery main-layout">
     </main>
+    <div class="editing-area flex main-layout align-center">
+        <div class="canvas">
+            <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
+        </div>
+        <div class="editing-tools flex">
+            <input type="text" oninput="onSetText(this.value)">
+            <div class="move-tools">
+                <button class="next-line">&#8593;</button>
+                <button class="next-line">&#8593;</button>
+            </div>
+        </div>
+    </div>
 
-    
 
-    <script src="js/main.js"></script>
+
     <script src="js/gallery-controller.js"></script>
-    <script src="js/meme-controller.js"></script>
+    <script src="js/meme-editor-controller.js"></script>
     <script src="js/services/service.js"></script>
     <script src="js/services/memes.service.js"></script>
 </body>

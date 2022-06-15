@@ -1,0 +1,25 @@
+.editing-area {
+    background-color: pink;
+    height: 600px;
+    display: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.canvas {
+    height: 100%;
+    border-inline-end: 1px solid var(--clr3);
+    width: 50%;
+
+}
+
+canvas {
+    margin: auto;
+    background-color: white;
+    margin-top: 40px;
+}
+
+.editing-tools {
+    display: flex;
+    flex-direction: column;
+}

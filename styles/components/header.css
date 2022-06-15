@@ -1,12 +1,27 @@
 .logo {
-    height: 20px;
-    background-color: pink;
+    height: 80%;
 }
 
 .main-header {
-    height: 30px;
+    height: 50px;
+    color: var(--clr1);
 }
 
 .main-header img {
     max-height: 100%;
+}
+
+.nav-li a {
+    color: inherit;
+    height: 50px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow .4s;
+}
+
+.nav-li a.active {
+    color: var(--clr2);
+    cursor: default;
 }
