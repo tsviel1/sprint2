@@ -8,12 +8,13 @@ function onInit() {
 
 function renderGallery() {
     var strHTML = '';
-	for (var i = 1; i <= gGalleryLength; i++) {
-        `<div class="card flex">
-            <img src="img/meme-imgs (square)/${i}.jpg" alt="">
+	for (let i = 1; i <= gGalleryLength; i++) {
+        strHTML += `<div class="card flex">
+            <img src="img/meme-imgs (square)/${i}.jpg" />
         </div>`
 		}
 	
 	var elGallery = document.querySelector('main');
+    console.log(elGallery);
 	elGallery.innerHTML = strHTML;
 }
