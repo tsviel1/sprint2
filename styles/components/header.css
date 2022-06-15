@@ -1,0 +1,12 @@
+.logo {
+    height: 20px;
+    background-color: pink;
+}
+
+.main-header {
+    height: 30px;
+}
+
+.main-header img {
+    max-height: 100%;
+}
