@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Tsviel Sillam's Sprint 2</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
+
 <body onload="onInit()">
     <div class="all-heading">
         <header class="main-header main-layout flex space-between align-center">
@@ -26,11 +28,26 @@
         <div class="canvas">
             <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
         </div>
-        <div class="editing-tools flex">
-            <input type="text" oninput="onSetText(this.value)">
-            <div class="move-tools">
-                <button class="next-line">&#8593;</button>
-                <button class="next-line">&#8593;</button>
+        <div class="editing-area-tools">
+            <div class="editing-tools">
+                <input type="text" oninput="onSetText(this.value)">
+                <button class="move-up"><img src="img/ICONS/move-down.png" /></button>
+                <button class="move-down"><img src="img/ICONS/move-up.png" /></button>
+                <button class="switch-line"><img src="img/ICONS/switch.png" /></button>
+                <button class="add-line"><img src="img/ICONS/add.png" /></button>
+                <button class="trash-line"><img src="img/ICONS/trash.png" /></button>
+                <button class="increase-font"><img src="img/ICONS/increase-font.png" /></button>
+                <button class="decrease-font"><img src="img/ICONS/decrease-font.png" /></button>
+                <button class="align-left"><img src="img/ICONS/align-to-left.png" /></button>
+                <button class="align-center"><img src="img/ICONS/center-text-alignment.png" /></button>
+                <button class="align-right"><img src="img/ICONS/align-to-right.png" /></button>
+                <select onchange="onSetFontFamily(this.value)" name="font-family-picker" class="font-family-picker">
+                    <option value="impact">Impact</option>
+                    <option value="arial">Arial</option>
+                </select>
+                <button class="stroke-color-picker"><img src="img/ICONS/text-stroke.png" /></button>
+                <button class="fill-color-picker"><img src="img/ICONS/paint-board-and-brush.png" /></button>
+                <button class="download">Download...</button>
             </div>
         </div>
     </div>
@@ -42,4 +59,5 @@
     <script src="js/services/service.js"></script>
     <script src="js/services/memes.service.js"></script>
 </body>
+
 </html>

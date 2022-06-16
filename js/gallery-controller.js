@@ -1,13 +1,10 @@
 'use strict'
 
 var gGalleryLength = 18
-var gElCanvas
-var gCtx
 
 function onInit() {
     renderGallery()
-    gElCanvas = document.getElementById('my-canvas')
-    gCtx = gElCanvas.getContext('2d')
+    initCanvas()
 }
 
 function renderGallery() {
