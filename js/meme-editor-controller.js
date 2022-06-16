@@ -16,6 +16,11 @@ function onCreateNewLine() {
     renderMeme()
 }
 
+function onSetFontFamily(fontFamily) {
+    SetFontFamily(fontFamily, gCurrLineIdx)
+    renderMeme()
+}
+
 function onIncreaseFont() {
     increaseFont(gCurrLineIdx)
     renderMeme()
@@ -29,6 +34,16 @@ function onDecreaseFont() {
 function resetTextInput() {
     var elTextInput = document.querySelector('input')
     elTextInput.value = ''
+}
+function onSetStrokeColor(value) {
+    console.log(value);
+    setStrokeColor(value, gCurrLineIdx)
+    renderMeme()
+}
+
+function onSetFillColor(value) {
+    setFillColor(value, gCurrLineIdx)
+    renderMeme()
 }
 
 function initCanvas() {
@@ -65,10 +80,31 @@ function onSwitchLine() {
     }
 }
 
+function onAlignLeft() {
+    alignLeft(gCurrLineIdx)
+    renderMeme()
+}
+
+function onAlignCenter() {
+    alignCenter(gCurrLineIdx)
+    renderMeme()
+}
+
+function onAlignRight() {
+    alignRight(gCurrLineIdx)
+    renderMeme()
+}
+
 function onTrashLine() {
     TrashLine(gCurrLineIdx)
     gCurrLineIdx--
     renderMeme()
+}
+
+function downloadImg(elLink) {
+    var imgContent = gElCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
+    elLink.download= 'my-meme'
 }
 
 function renderMeme() {
@@ -81,13 +117,15 @@ function renderMeme() {
         const text = meme.lines[i].txt
         const fillColor = meme.lines[i].fillColor
         gCtx.fillStyle = fillColor;
-        const strokeColor = meme.lines[i].StrokeColor
+        const strokeColor = meme.lines[i].strokeColor
         gCtx.strokeStyle = strokeColor;
         const fontFamily = meme.lines[i].fontFamily
         const fontSize = meme.lines[i].fontSize
         gCtx.font = `${fontSize}px ${fontFamily}`;
         const posX = meme.lines[i].posX
         const posY = meme.lines[i].posY
+        const align = meme.lines[i].align
+        gCtx.textAlign = align
         gCtx.fillText(text, posX, posY);
         gCtx.strokeText(text, posX, posY);
     }

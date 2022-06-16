@@ -34,20 +34,25 @@
                 <button class="move-down" onclick="onMoveLineDown()"><img src="img/ICONS/move-down.png" /></button>
                 <button class="move-up" onclick="onMoveLineUp()"><img src="img/ICONS/move-up.png" /></button>
                 <button class="switch-line" onclick="onSwitchLine()"><img src="img/ICONS/switch.png" /></button>
-                <button class="add-line" onclick="onCreateNewLine()" ><img src="img/ICONS/add.png" /></button>
+                <button class="add-line" onclick="onCreateNewLine()"><img src="img/ICONS/add.png" /></button>
                 <button class="trash-line" onclick="onTrashLine()"><img src="img/ICONS/trash.png" /></button>
-                <button class="increase-font" onclick="onIncreaseFont()"><img src="img/ICONS/increase-font.png" /></button>
-                <button class="decrease-font" onclick="onDecreaseFont()"><img src="img/ICONS/decrease-font.png" /></button>
-                <button class="align-left"><img src="img/ICONS/align-to-left.png" /></button>
-                <button class="align-center"><img src="img/ICONS/center-text-alignment.png" /></button>
-                <button class="align-right"><img src="img/ICONS/align-to-right.png" /></button>
+                <button class="increase-font" onclick="onIncreaseFont()"><img
+                        src="img/ICONS/increase-font.png" /></button>
+                <button class="decrease-font" onclick="onDecreaseFont()"><img
+                        src="img/ICONS/decrease-font.png" /></button>
+                <button class="align-left" onclick="onAlignLeft()"><img src="img/ICONS/align-to-left.png" /></button>
+                <button class="align-center" onclick="onAlignCenter()"><img
+                        src="img/ICONS/center-text-alignment.png" /></button>
+                <button class="align-right" onclick="onAlignRight()"><img src="img/ICONS/align-to-right.png" /></button>
                 <select onchange="onSetFontFamily(this.value)" name="font-family-picker" class="font-family-picker">
-                    <option value="impact">Impact</option>
-                    <option value="arial">Arial</option>
+                    <option value="Impact">Impact</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Kdam_Thmor_Pro">Kdam Thmor Pro</option>
+                    <option value="Pacifico">Pacifico</option>
                 </select>
-                <button class="stroke-color-picker"><img src="img/ICONS/text-stroke.png" /></button>
-                <button class="fill-color-picker"><img src="img/ICONS/paint-board-and-brush.png" /></button>
-                <button class="download">Download...</button>
+                <input type="color" onchange="onSetStrokeColor(this.value)" name="color-picker" />
+                <input type="color" onchange="onSetFillColor(this.value)" name="color-picker" />
+                <button class="download"><a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download...</a></button>
             </div>
         </div>
     </div>

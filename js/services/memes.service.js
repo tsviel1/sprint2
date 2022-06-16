@@ -128,6 +128,7 @@ function createline() {
     }
 }
 
+
 function CreateNewLine() {
     gMeme.lines.push(createline())
 }
@@ -148,6 +149,18 @@ function MoveLineUp(currLineIdx) {
     gMeme.lines[currLineIdx].posY -= 10
 }
 
+function SetFontFamily(fontFamily, lineIdx) {
+    gMeme.lines[lineIdx].fontFamily = fontFamily
+}
+
+function setStrokeColor(color, lineIdx) {
+    gMeme.lines[lineIdx].strokeColor = color
+}
+
+function setFillColor(color, lineIdx) {
+    gMeme.lines[lineIdx].fillColor = color
+}
+
 function setImg(photoId) {
     gMeme.selectedImgId = photoId
 }
@@ -166,6 +179,21 @@ function decreaseFont(lineIdx) {
     var currSize = gMeme.lines[lineIdx].fontSize
     if (currSize < 10) return
     gMeme.lines[lineIdx].fontSize -= 5
+}
+
+function alignLeft(lineIdx) {
+    gMeme.lines[lineIdx].align = 'left'
+    gMeme.lines[lineIdx].posX = 50
+}
+
+function alignCenter(lineIdx) {
+    gMeme.lines[lineIdx].align = 'center'
+    gMeme.lines[lineIdx].posX = 225
+}
+
+function alignRight(lineIdx) {
+    gMeme.lines[lineIdx].align = 'right'
+    gMeme.lines[lineIdx].posX = 400
 }
 
 function getPhotos() {
