@@ -1,0 +1,25 @@
+/* MOBILE */
+
+@media (max-width: 740px) {
+    .editing-area {
+        flex-direction: column;
+    }
+}
+
+@media (min-width:740px) {
+    .editing-area {
+        height: 800px;
+        flex-wrap: wrap;
+        width: 80vw;
+    }
+
+}
+
+@media (min-width:1020px) {
+    .editing-area {
+        height: 600px;
+    }
+    .canvas {
+        border-inline-end: 1px solid var(--clr3);
+    }
+}
