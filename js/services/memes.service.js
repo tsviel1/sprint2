@@ -97,13 +97,81 @@ var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
     lines: [{
-        txt: 'I sometimes eat Falafel', size: 20,
+        txt: 'Put your text here',
+        fontSize: 20,
+        fontFamily: 'Impact',
         align: 'left',
-        color: 'red'
-    }]
+        fillColor: 'red',
+        strokeColor: 'black',
+        posX: 50,
+        posY: 50
+    },
+]
 }
 
+function createline() {
+    let posY
+    if (gMeme.lines.length === 1) {
+        posY = 400
+    } else if (gMeme.lines.length >= 2) {
+        posY = 225
+    }
+    return {
+        txt: 'Put your text here',
+        fontSize: 20,
+        fontFamily: 'Impact',
+        align: 'left',
+        fillColor: 'red',
+        strokeColor: 'black',
+        posX: 50,
+        posY: posY
+    }
+}
+
+function CreateNewLine() {
+    gMeme.lines.push(createline())
+}
+
+function getLinesAmount() {
+    return gMeme.lines.length
+}
+
+function TrashLine(lineIdx) {
+    gMeme.lines.splice(lineIdx, 1)
+}
+
+function MoveLineDown(currLineIdx) {
+    gMeme.lines[currLineIdx].posY += 10
+}
+
+function MoveLineUp(currLineIdx) {
+    gMeme.lines[currLineIdx].posY -= 10
+}
+
+function setImg(photoId) {
+    gMeme.selectedImgId = photoId
+}
+
+function setLineText(text, CurrLine) {
+    gMeme.lines[CurrLine].txt = text
+}
+
+function increaseFont(lineIdx) {
+    var currSize = gMeme.lines[lineIdx].fontSize
+    if (currSize > 200) return
+    gMeme.lines[lineIdx].fontSize += 5
+}
+
+function decreaseFont(lineIdx) {
+    var currSize = gMeme.lines[lineIdx].fontSize
+    if (currSize < 10) return
+    gMeme.lines[lineIdx].fontSize -= 5
+}
 
 function getPhotos() {
     return gImgs
+}
+
+function getMeme() {
+    return gMeme
 }

@@ -10,7 +10,7 @@ function onInit() {
 function renderGallery() {
     var photos = getPhotos()
 
-    var strHTML = photos.map((photo) => `<div class="card flex" onclick="onChoosePhoto('${photo.id}')">
+    var strHTML = photos.map((photo) => `<div class="card flex" onclick="onImgSelect('${photo.id}')">
     <img id="${photo.id}" src="${photo.url}" />
     </div>`)
 

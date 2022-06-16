@@ -58,13 +58,6 @@ input[type=text] {
     grid-column: 1/span 5;
 }
 
-.move-up {
-    grid-column: 1 / span 1;
-}
-.move-down {
-    grid-column: 2 / span 1;
-}
-
 .font-family-picker {
     grid-column: 1 / span 3;
 }
