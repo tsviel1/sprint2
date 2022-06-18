@@ -126,8 +126,7 @@ function onTrashLine() {
         resetTextInput()
     } else if (gCurrLineIdx > 0) {
         gCurrLineIdx--
-        gCurrLineIdx = 0
-        switchFocus(0)
+        switchFocus(gCurrLineIdx)
         renderMeme()
     } else {
         return

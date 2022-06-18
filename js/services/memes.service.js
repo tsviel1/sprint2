@@ -124,6 +124,8 @@ function createline() {
         posY = gMemeHeight - (gMemeHeight / 7)
     } else if (gMeme.lines.length >= 2) {
         posY = gMemeHeight / 2
+    } else {
+        posY = gMemeHeight / 7
     }
     return {
         txt: 'Put your text here',
@@ -184,8 +186,11 @@ function setImg(photoId) {
 function setLineText(text, CurrLine) {
     if (CurrLine === -1) {
         CreateNewLine()
+        gMeme.lines[0].txt = ''
+    } else {
+        gMeme.lines[CurrLine].txt = text
     }
-    gMeme.lines[CurrLine].txt = text
+
 }
 
 function increaseFont(lineIdx) {
