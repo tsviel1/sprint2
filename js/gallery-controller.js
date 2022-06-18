@@ -15,3 +15,9 @@ function renderGallery() {
 
    document.querySelector('main').innerHTML = strHTML.join('')
 }
+
+function toggleHamburger() {
+    document.body.classList.toggle('menu-open')
+    const elBtn = document.querySelector('.hamburger-btn')
+    elBtn.innerText = elBtn.innerText === '☰' ? '✖' : '☰'
+  }

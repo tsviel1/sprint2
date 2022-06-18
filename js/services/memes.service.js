@@ -103,6 +103,7 @@ function createGMeme() {
         selectedLineIdx: 0,
         lines: [{
             txt: 'Put your text here',
+            isFocused: true,
             fontSize: gMemeHeight / 10,
             fontFamily: 'Impact',
             align: 'left',
@@ -116,6 +117,7 @@ function createGMeme() {
 }
 
 function createline() {
+    clearFocus()
     let posY
     if (gMeme.lines.length === 1) {
         posY = gMemeHeight - (gMemeHeight / 7)
@@ -124,6 +126,7 @@ function createline() {
     }
     return {
         txt: 'Put your text here',
+        isFocused: true,
         fontSize: gMemeHeight / 10,
         fontFamily: 'Impact',
         align: 'left',
@@ -214,4 +217,11 @@ function getPhotos() {
 
 function getMeme() {
     return gMeme
+}
+
+// Focus
+
+function getFocused() {
+    const lineObj = gMeme.lines.find(line => line.isFocused)
+    return lineObj
 }
