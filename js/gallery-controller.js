@@ -1,6 +1,5 @@
 'use strict'
 
-var gGalleryLength = 18
 
 function onInit() {
     renderGallery()

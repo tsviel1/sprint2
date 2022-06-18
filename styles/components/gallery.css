@@ -1,4 +1,6 @@
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgb(225, 36, 228);
+    padding: 10px;
 }

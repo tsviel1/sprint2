@@ -26,7 +26,7 @@
     </main>
     <div class="editing-area flex main-layout align-center">
         <div class="canvas">
-            <canvas id="my-canvas"></canvas>
+            <canvas id="my-canvas" width="350" height="350"></canvas>
         </div>
         <div class="editing-area-tools">
             <div class="editing-tools">
@@ -50,9 +50,22 @@
                     <option value="Kdam_Thmor_Pro">Kdam Thmor Pro</option>
                     <option value="Pacifico">Pacifico</option>
                 </select>
-                <input type="color" onchange="onSetStrokeColor(this.value)" name="color-picker" />
-                <input type="color" onchange="onSetFillColor(this.value)" name="color-picker" />
-                <button class="download"><a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download...</a></button>
+                <button class="stroke-color">
+                    <label for="stroke-color" class="stroke-btn">
+                        <img src="img/ICONS/text-stroke.png" />
+                    </label>
+                    <input class="color-input" type="color" id="stroke-color" onchange="onSetStrokeColor(this.value)"
+                        name="color-picker" />
+                </button>
+                <button class="fill-color">
+                    <label for="fill-color" class="stroke-btn">
+                        <img src="img/ICONS/paint-board-and-brush.png" />
+                    </label>
+                    <input class="color-input" type="color" id="fill-color" onchange="onSetFillColor(this.value)"
+                        name="color-picker" />
+                </button>
+                <button class="download"><a href="#" class="btn" onclick="downloadImg(this)"
+                        download="my-img.jpg">Download...</a></button>
             </div>
         </div>
     </div>

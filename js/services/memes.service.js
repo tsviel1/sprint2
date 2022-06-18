@@ -93,37 +93,43 @@ var gImgs = [
     }
 ]
 
-var gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-    lines: [{
-        txt: 'Put your text here',
-        fontSize: 20,
-        fontFamily: 'Impact',
-        align: 'left',
-        fillColor: 'red',
-        strokeColor: 'black',
-        posX: 50,
-        posY: 50
-    },
-]
+var gMemeHeight
+var gMemeWidth
+var gMeme
+
+function createGMeme() {
+    gMeme = {
+        selectedImgId: 5,
+        selectedLineIdx: 0,
+        lines: [{
+            txt: 'Put your text here',
+            fontSize: gMemeHeight / 10,
+            fontFamily: 'Impact',
+            align: 'left',
+            fillColor: 'red',
+            strokeColor: 'black',
+            posX: gMemeWidth / 10,
+            posY: gMemeHeight / 7
+        },
+        ]
+    }
 }
 
 function createline() {
     let posY
     if (gMeme.lines.length === 1) {
-        posY = 400
+        posY = gMemeHeight - (gMemeHeight / 7)
     } else if (gMeme.lines.length >= 2) {
-        posY = 225
+        posY = gMemeHeight / 2
     }
     return {
         txt: 'Put your text here',
-        fontSize: 20,
+        fontSize: gMemeHeight / 10,
         fontFamily: 'Impact',
         align: 'left',
         fillColor: 'red',
         strokeColor: 'black',
-        posX: 50,
+        posX: gMemeWidth / 10,
         posY: posY
     }
 }
@@ -131,6 +137,11 @@ function createline() {
 
 function CreateNewLine() {
     gMeme.lines.push(createline())
+}
+
+function changeFontHeightEtc(num) {
+    gMemeWidth = num
+    gMemeHeight = num
 }
 
 function getLinesAmount() {
@@ -163,6 +174,7 @@ function setFillColor(color, lineIdx) {
 
 function setImg(photoId) {
     gMeme.selectedImgId = photoId
+    gMeme.lines
 }
 
 function setLineText(text, CurrLine) {
@@ -183,17 +195,17 @@ function decreaseFont(lineIdx) {
 
 function alignLeft(lineIdx) {
     gMeme.lines[lineIdx].align = 'left'
-    gMeme.lines[lineIdx].posX = 50
+    gMeme.lines[lineIdx].posX = gMemeWidth / 10
 }
 
 function alignCenter(lineIdx) {
     gMeme.lines[lineIdx].align = 'center'
-    gMeme.lines[lineIdx].posX = 225
+    gMeme.lines[lineIdx].posX = gMemeWidth / 2
 }
 
 function alignRight(lineIdx) {
     gMeme.lines[lineIdx].align = 'right'
-    gMeme.lines[lineIdx].posX = 400
+    gMeme.lines[lineIdx].posX = gMemeWidth - (gMemeWidth / 10)
 }
 
 function getPhotos() {

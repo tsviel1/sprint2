@@ -2,19 +2,12 @@
     background-color: pink;
     display: none;
     flex-direction: column;
-    /* flex-wrap: wrap; */
-    /* width: 80vw; */
     margin: 0 auto;
-    height: 90vh;
 }
 
 .canvas {
     display: flex;
-    /* height: 100%; */
-    /* width: 50%; */
-    text-align: center;
-    align-items: center;
-    flex-grow: 1;
+    background-color: chocolate;
 }
 
 canvas {
@@ -24,17 +17,16 @@ canvas {
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
-    height: 250px;
-    width: 250px;
+    /* height: 300px;
+    width: 300px; */
 }
 
 .editing-area-tools {
     display: flex;
     background-color: blue;
     text-align: center;
-    /* align-items: center; */
+    align-items: center;
     width: 90%;
-    flex-grow: 1;
 }
 
 .editing-tools {
@@ -45,8 +37,19 @@ canvas {
     width: 100%;
     background-color: brown;
     justify-content: center;
-    /* align-content: center; */
+    align-content: center;
 
+}
+
+label button {
+    height: 100%;
+    width: 100%;
+}
+
+.color-input {
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-100%);
 }
 
 input[type=text] {

@@ -48,7 +48,23 @@ function onSetFillColor(value) {
 
 function initCanvas() {
     gElCanvas = document.getElementById('my-canvas')
+    const mq = window.matchMedia('(min-width: 1020px)')
+    const mq1 = window.matchMedia('(min-width: 740px)')
+    console.log(mq);
+    if (mq.matches) {
+        gElCanvas.setAttribute('width', '550')
+        gElCanvas.setAttribute('height', '550')
+        changeFontHeightEtc(550)
+    } else if (mq1.matches) {
+        gElCanvas.setAttribute('width', '400')
+        gElCanvas.setAttribute('height', '400')
+        changeFontHeightEtc(400)
+    } else {
+        changeFontHeightEtc(350)
+    }
+    gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
+
 }
 
 function onImgSelect(imgId) {
@@ -57,6 +73,7 @@ function onImgSelect(imgId) {
 
     var elEditingArea = document.querySelector('.editing-area')
     elEditingArea.style.display = 'flex'
+    createGMeme()
     setImg(imgId)
     renderMeme()
 }

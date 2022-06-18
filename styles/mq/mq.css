@@ -1,25 +1,48 @@
 /* MOBILE */
 
 @media (max-width: 740px) {
-    .editing-area {
-        flex-direction: column;
-    }
+
 }
 
 @media (min-width:740px) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
     .editing-area {
         height: 800px;
         flex-wrap: wrap;
         width: 80vw;
     }
-
+    canvas {
+        width: 400px;
+        height: 400px;
+    }
 }
 
 @media (min-width:1020px) {
+    .gallery {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
     .editing-area {
         height: 600px;
+        flex-direction: row;
+        width: 90vw;
     }
     .canvas {
         border-inline-end: 1px solid var(--clr3);
+        height: 100%;
+        width: 50%;
+        align-items: center;
     }
+    canvas {
+        height: 500px;
+        width: 500px;
+    }
+
+    .editing-area-tools {
+        width: auto;
+        width: 50%;
+    }
+
 }
