@@ -95,6 +95,8 @@ function onSwitchLine() {
     } else {
         gCurrLineIdx++
     }
+    switchFocus(gCurrLineIdx)
+    renderMeme()
 }
 
 function onAlignLeft() {
@@ -115,6 +117,8 @@ function onAlignRight() {
 function onTrashLine() {
     TrashLine(gCurrLineIdx)
     gCurrLineIdx--
+    gCurrLineIdx = 0
+    switchFocus(0)
     renderMeme()
 }
 
@@ -151,9 +155,7 @@ function renderMeme() {
 
 // RECTENGL
 
-function clearFocus() {
-    gMeme.lines.forEach(line => line.isFocused = false)
-}
+
 
 function renderFocus() {
     const lineObj = getFocused()

@@ -221,7 +221,16 @@ function getMeme() {
 
 // Focus
 
+function clearFocus() {
+    gMeme.lines.forEach(line => line.isFocused = false)
+}
+
 function getFocused() {
     const lineObj = gMeme.lines.find(line => line.isFocused)
     return lineObj
+}
+
+function switchFocus(lineIdx) {
+    clearFocus()
+    gMeme.lines[lineIdx].isFocused = true
 }
