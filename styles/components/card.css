@@ -10,6 +10,6 @@
 
 .card img:hover {
     cursor: pointer;
-    outline: 5px solid rgb(240, 158, 58);
+    outline: 5px solid var(--clr4);
     transition: 0.2s;
 }

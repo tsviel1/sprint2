@@ -92,7 +92,8 @@ var gImgs = [
         keywords: ['look-at-all-these', 'toy-story']
     }
 ]
-
+var gSavedMemes = []
+var gNewMemeIdx = 0
 var gMemeHeight
 var gMemeWidth
 var gMeme
@@ -181,6 +182,9 @@ function setImg(photoId) {
 }
 
 function setLineText(text, CurrLine) {
+    if (CurrLine === -1) {
+        CreateNewLine()
+    }
     gMeme.lines[CurrLine].txt = text
 }
 
@@ -233,4 +237,22 @@ function getFocused() {
 function switchFocus(lineIdx) {
     clearFocus()
     gMeme.lines[lineIdx].isFocused = true
+}
+
+
+
+//Save Meme
+
+function saveMeme() {
+    clearFocus()
+    var currMeme = gMeme
+    currMeme.url = gElCanvas.toDataURL('img/jpeg')
+    currMeme.id = gNewMemeIdx
+    gSavedMemes.push(currMeme)
+    saveToStorage(gSavedMemes)
+    gNewMemeIdx++
+}
+
+function createLines(lines) {
+    gMeme.lines = lines
 }

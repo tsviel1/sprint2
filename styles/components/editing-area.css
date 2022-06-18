@@ -1,5 +1,4 @@
 .editing-area {
-    background-color: pink;
     display: none;
     flex-direction: column;
     margin: 0 auto;
@@ -7,7 +6,6 @@
 
 .canvas {
     display: flex;
-    background-color: chocolate;
 }
 
 canvas {
@@ -23,7 +21,6 @@ canvas {
 
 .editing-area-tools {
     display: flex;
-    background-color: blue;
     text-align: center;
     align-items: center;
     width: 90%;
@@ -33,9 +30,7 @@ canvas {
     display: grid;
     grid-template-columns: repeat(5, 60px);
     grid-template-rows: repeat(5, 60px);
-    /* height: 100%; */
     width: 100%;
-    background-color: brown;
     justify-content: center;
     align-content: center;
 

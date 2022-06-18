@@ -13,13 +13,13 @@
     <div class="all-heading">
         <header class="main-header main-layout flex space-between align-center">
             <div class="logo">
-                <img src="img/logo/LOGO.png" />
+                <a onclick="onInit()"><img src="img/logo/LOGO.png" /></a>
             </div>
             <ul class="main-nav clean-list flex">
-                <li class="nav-li"> <a href="#">Memes</a></li>
-                <hr/>
-                <li class="nav-li"> <a href="#" class="active">Gallery</a></li>
-                <hr/>
+                <li class="nav-li my-memes-btn"> <a onclick="showMyMemes()" href="#">Memes</a></li>
+                <hr />
+                <li class="nav-li gallery-btn"> <a onclick="onInit()" href="#" class="active">Gallery</a></li>
+                <hr />
                 <li class="nav-li"> <a href="#">About</a></li>
             </ul>
             <button class="hamburger-btn" onclick="toggleHamburger()">☰</button>
@@ -33,7 +33,7 @@
         </div>
         <div class="editing-area-tools">
             <div class="editing-tools">
-                <input type="text" oninput="onSetLineText(this.value)">
+                <input type="text" name="text-input" oninput="onSetLineText(this.value)">
                 <button class="move-down" onclick="onMoveLineDown()"><img src="img/ICONS/move-down.png" /></button>
                 <button class="move-up" onclick="onMoveLineUp()"><img src="img/ICONS/move-up.png" /></button>
                 <button class="switch-line" onclick="onSwitchLine()"><img src="img/ICONS/switch.png" /></button>
@@ -67,8 +67,9 @@
                     <input class="color-input" type="color" id="fill-color" onchange="onSetFillColor(this.value)"
                         name="color-picker" />
                 </button>
-                <button class="download"><a href="#" class="btn" onclick="downloadImg(this)"
-                        download="my-img.jpg">Download...</a></button>
+                <button class="download"><a href="#" class="btn" onclick="onDownloadMeme(this)"
+                        download="my-img.jpg">Download</a></button>
+                <button class="save"><a href="#" class="btn" onclick="onSaveMeme()">Save</a></button>
             </div>
         </div>
     </div>
@@ -77,8 +78,8 @@
 
     <script src="js/gallery-controller.js"></script>
     <script src="js/meme-editor-controller.js"></script>
-    <script src="js/services/service.js"></script>
     <script src="js/services/memes.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
 </body>
 
 </html>

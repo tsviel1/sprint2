@@ -2,9 +2,15 @@
     height: 80%;
 }
 
+.logo:hover {
+    cursor: pointer;
+}
+
 .main-header {
     height: 50px;
     color: var(--clr1);
+    background-color: var(--clr4);
+    background-image: var(--clr5);
 }
 
 .main-header img {

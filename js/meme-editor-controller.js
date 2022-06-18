@@ -6,6 +6,9 @@ var gCurrLineIdx = 0
 
 function onSetLineText(text) {
     setLineText(text, gCurrLineIdx)
+    if (gCurrLineIdx === -1) {
+        gCurrLineIdx = 0
+    }
     renderMeme()
 }
 
@@ -36,7 +39,6 @@ function resetTextInput() {
     elTextInput.value = ''
 }
 function onSetStrokeColor(value) {
-    console.log(value);
     setStrokeColor(value, gCurrLineIdx)
     renderMeme()
 }
@@ -50,7 +52,6 @@ function initCanvas() {
     gElCanvas = document.getElementById('my-canvas')
     const mq = window.matchMedia('(min-width: 1020px)')
     const mq1 = window.matchMedia('(min-width: 740px)')
-    console.log(mq);
     if (mq.matches) {
         gElCanvas.setAttribute('width', '550')
         gElCanvas.setAttribute('height', '550')
@@ -68,11 +69,14 @@ function initCanvas() {
 }
 
 function onImgSelect(imgId) {
+    gCurrLineIdx = 0
+    document.querySelector('input[name="text-input"]').value = ''
     var elGallery = document.querySelector('.gallery')
     elGallery.style.display = 'none'
 
     var elEditingArea = document.querySelector('.editing-area')
     elEditingArea.style.display = 'flex'
+    document.querySelector('.gallery-btn a').classList.remove('active')
     createGMeme()
     setImg(imgId)
     renderMeme()
@@ -116,13 +120,23 @@ function onAlignRight() {
 
 function onTrashLine() {
     TrashLine(gCurrLineIdx)
-    gCurrLineIdx--
-    gCurrLineIdx = 0
-    switchFocus(0)
-    renderMeme()
+    if (gCurrLineIdx === 0) {
+        gCurrLineIdx--
+        renderMeme()
+        resetTextInput()
+    } else if (gCurrLineIdx > 0) {
+        gCurrLineIdx--
+        gCurrLineIdx = 0
+        switchFocus(0)
+        renderMeme()
+    } else {
+        return
+    }
 }
 
-function downloadImg(elLink) {
+function onDownloadMeme(elLink) {
+    clearFocus()
+    renderMeme()
     var imgContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
     elLink.download = 'my-meme'
@@ -154,8 +168,6 @@ function renderMeme() {
 }
 
 // RECTENGL
-
-
 
 function renderFocus() {
     const lineObj = getFocused()
@@ -190,5 +202,34 @@ function renderFocus() {
         gCtx.rect(begginingX, begginingY, endingX, endingY);
         gCtx.stroke();
     }
+}
 
+// Save Meme
+
+function onSaveMeme() {
+    saveMeme()
+}
+
+
+function showMyMemes() {
+    document.querySelector('.editing-area').style.display = 'none'
+    document.querySelector('.gallery').style.display = 'grid'
+    var savedMemes = loadFromStorage()
+    const strHTMLs = savedMemes.map((meme) => {
+        return `<a href="${meme.url}" onclick="reEditMeme(${meme})"><img src="${meme.url}" alt=""></a>
+        `
+    })
+    document.querySelector('.gallery').innerHTML = strHTMLs.join('')
+    document.querySelector('.gallery-btn a').classList.remove('active')
+    document.querySelector('.my-memes-btn a').classList.add('active')
+    removeHamburger()
+}
+
+function reEditMeme(meme) {
+    document.querySelector('.gallery').style.display = 'none'
+    document.querySelector('.editing-area').style.display = 'grid'
+    createGMeme()
+    setImg(meme.selectedImgId)
+    createLines(meme.lines)
+    renderMeme()
 }

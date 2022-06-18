@@ -71,10 +71,23 @@
 @media (min-width:740px) {
     .main-header .hamburger-btn {
         display: none;
-      }
-      
+    }
+
+    .main-header {
+        margin: 5px, 10px;
+        border-radius: 20px;
+    }
+
+    .nav-li a.active {
+        background-color: #fff;
+        border-radius: 30px;
+    }
+
     .gallery {
         grid-template-columns: repeat(4, 1fr);
+        margin-left: 20px;
+        margin-right: 20px;
+        gap: 10px;
     }
 
     .editing-area {
@@ -86,6 +99,10 @@
     canvas {
         width: 400px;
         height: 400px;
+    }
+
+    hr {
+        display: none;
     }
 
 
@@ -103,7 +120,6 @@
     }
 
     .canvas {
-        border-inline-end: 1px solid var(--clr3);
         height: 100%;
         width: 50%;
         align-items: center;
