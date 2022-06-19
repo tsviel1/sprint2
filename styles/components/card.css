@@ -13,3 +13,20 @@
     outline: 5px solid var(--clr4);
     transition: 0.2s;
 }
+
+
+/* For My Memes */
+
+.gallery a {
+    padding: 10px;
+}
+
+.gallery a img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.gallery a img:hover {
+    outline: 5px solid var(--clr2);
+    transition: 0.2s;
+}

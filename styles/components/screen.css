@@ -1,0 +1,10 @@
+.about {
+    display: none;
+    max-width: 400px;
+    color: rgb(231, 231, 231);
+    text-align: center;
+}
+
+.about p {
+    margin-top: 20px;
+}

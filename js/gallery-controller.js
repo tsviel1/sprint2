@@ -14,6 +14,16 @@ function removeHamburger() {
     }
 }
 
+function onAbout() {
+    document.querySelector('.gallery').style.display = 'none'
+    document.querySelector('.editing-area').style.display = 'none'
+    document.querySelector('.about').style.display = 'flex'
+    document.querySelector('.my-memes-btn a').classList.remove('active')
+    document.querySelector('.gallery-btn a').classList.remove('active')
+    document.querySelector('.about-btn a').classList.add('active')
+    removeHamburger()
+}
+
 
 function renderGallery() {
     document.querySelector('.editing-area').style.display = 'none'
@@ -24,7 +34,10 @@ function renderGallery() {
     document.querySelector('main').innerHTML = strHTML.join('')
     document.querySelector('.gallery').style.display = 'grid'
     document.querySelector('.my-memes-btn a').classList.remove('active')
+    document.querySelector('.about-btn a').classList.remove('active')
     document.querySelector('.gallery-btn a').classList.add('active')
+    document.querySelector('.about').style.display = 'none'
+
 
 }
 

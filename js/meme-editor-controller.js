@@ -3,6 +3,7 @@
 var gElCanvas
 var gCtx
 var gCurrLineIdx = 0
+var gSavedMemes
 
 function onSetLineText(text) {
     setLineText(text, gCurrLineIdx)
@@ -61,7 +62,7 @@ function initCanvas() {
         gElCanvas.setAttribute('height', '400')
         changeFontHeightEtc(400)
     } else {
-        changeFontHeightEtc(350)
+        changeFontHeightEtc(300)
     }
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
@@ -144,26 +145,29 @@ function onDownloadMeme(elLink) {
 function renderMeme() {
     const meme = getMeme()
     const photoId = meme.selectedImgId
-    const image = document.getElementById(photoId)
-    gCtx.drawImage(image, 0, 0, gElCanvas.width, gElCanvas.height)
-    gCtx.lineWidth = 2;
-    for (let i = 0; i < meme.lines.length; i++) {
-        const text = meme.lines[i].txt
-        const fillColor = meme.lines[i].fillColor
-        gCtx.fillStyle = fillColor;
-        const strokeColor = meme.lines[i].strokeColor
-        gCtx.strokeStyle = strokeColor;
-        const fontFamily = meme.lines[i].fontFamily
-        const fontSize = meme.lines[i].fontSize
-        gCtx.font = `${fontSize}px ${fontFamily}`;
-        const posX = meme.lines[i].posX
-        const posY = meme.lines[i].posY
-        const align = meme.lines[i].align
-        gCtx.textAlign = align
-        gCtx.fillText(text, posX, posY);
-        gCtx.strokeText(text, posX, posY);
-    }
-    renderFocus()
+    var img = new Image();
+    img.addEventListener('load', function () {
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
+        gCtx.lineWidth = 2;
+        for (let i = 0; i < meme.lines.length; i++) {
+            const text = meme.lines[i].txt
+            const fillColor = meme.lines[i].fillColor
+            gCtx.fillStyle = fillColor;
+            const strokeColor = meme.lines[i].strokeColor
+            gCtx.strokeStyle = strokeColor;
+            const fontFamily = meme.lines[i].fontFamily
+            const fontSize = meme.lines[i].fontSize
+            gCtx.font = `${fontSize}px ${fontFamily}`;
+            const posX = meme.lines[i].posX
+            const posY = meme.lines[i].posY
+            const align = meme.lines[i].align
+            gCtx.textAlign = align
+            gCtx.fillText(text, posX, posY);
+            gCtx.strokeText(text, posX, posY);
+        }
+        renderFocus()
+    });
+    img.src = `img/meme-imgs (square)/${photoId}.jpg`
 }
 
 // RECTENGL
@@ -211,24 +215,29 @@ function onSaveMeme() {
 
 
 function showMyMemes() {
-    document.querySelector('.editing-area').style.display = 'none'
-    document.querySelector('.gallery').style.display = 'grid'
-    var savedMemes = loadFromStorage()
-    const strHTMLs = savedMemes.map((meme) => {
-        return `<a href="${meme.url}" onclick="reEditMeme(${meme})"><img src="${meme.url}" alt=""></a>
+    gSavedMemes = loadFromStorage()
+    if (!gSavedMemes) {
+        alert(`You haven't saved memes yet!`)
+    } else {
+        document.querySelector('.editing-area').style.display = 'none'
+        document.querySelector('.about').style.display = 'none'
+        document.querySelector('.gallery').style.display = 'grid'
+        const strHTMLs = gSavedMemes.map((meme, idx) => {
+            return `<a href="#" onclick="reEditMeme(${idx})"><img src="${meme.url}" /></a>
         `
-    })
-    document.querySelector('.gallery').innerHTML = strHTMLs.join('')
-    document.querySelector('.gallery-btn a').classList.remove('active')
-    document.querySelector('.my-memes-btn a').classList.add('active')
+        })
+        document.querySelector('.gallery').innerHTML = strHTMLs.join('')
+        document.querySelector('.gallery-btn a').classList.remove('active')
+        document.querySelector('.my-memes-btn a').classList.add('active')
+    }
     removeHamburger()
 }
 
-function reEditMeme(meme) {
+function reEditMeme(gImgIdx) {
     document.querySelector('.gallery').style.display = 'none'
     document.querySelector('.editing-area').style.display = 'grid'
     createGMeme()
-    setImg(meme.selectedImgId)
-    createLines(meme.lines)
+    setImg(gSavedMemes[gImgIdx].selectedImgId)
+    createLines(gSavedMemes[gImgIdx].lines)
     renderMeme()
 }

@@ -1,0 +1,16 @@
+button img {
+    padding: 3px;
+    height: 100%;
+}
+
+
+.edit-btn {
+    border-radius: 5px;
+    border: 0 solid black;
+    background-color: white;
+}
+
+.edit-btn:hover {
+    background-color: rgb(255, 255, 110);
+    cursor: pointer;
+}

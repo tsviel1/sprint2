@@ -20,7 +20,7 @@
                 <hr />
                 <li class="nav-li gallery-btn"> <a onclick="onInit()" href="#" class="active">Gallery</a></li>
                 <hr />
-                <li class="nav-li"> <a href="#">About</a></li>
+                <li class="nav-li about-btn"> <a href="#" onclick="onAbout()">About</a></li>
             </ul>
             <button class="hamburger-btn" onclick="toggleHamburger()">☰</button>
         </header>
@@ -29,49 +29,54 @@
     </main>
     <div class="editing-area flex main-layout align-center">
         <div class="canvas">
-            <canvas id="my-canvas" width="350" height="350"></canvas>
+            <canvas id="my-canvas" width="300" height="300"></canvas>
         </div>
         <div class="editing-area-tools">
             <div class="editing-tools">
-                <input type="text" name="text-input" oninput="onSetLineText(this.value)">
-                <button class="move-down" onclick="onMoveLineDown()"><img src="img/ICONS/move-down.png" /></button>
-                <button class="move-up" onclick="onMoveLineUp()"><img src="img/ICONS/move-up.png" /></button>
-                <button class="switch-line" onclick="onSwitchLine()"><img src="img/ICONS/switch.png" /></button>
-                <button class="add-line" onclick="onCreateNewLine()"><img src="img/ICONS/add.png" /></button>
-                <button class="trash-line" onclick="onTrashLine()"><img src="img/ICONS/trash.png" /></button>
-                <button class="increase-font" onclick="onIncreaseFont()"><img
+                <input type="text" name="text-input" placeholder="Change line text..." oninput="onSetLineText(this.value)">
+                <button class="move-down edit-btn" onclick="onMoveLineDown()"><img src="img/ICONS/move-down.png" /></button>
+                <button class="move-up edit-btn" onclick="onMoveLineUp()"><img src="img/ICONS/move-up.png" /></button>
+                <button class="switch-line edit-btn" onclick="onSwitchLine()"><img src="img/ICONS/switch.png" /></button>
+                <button class="add-line edit-btn" onclick="onCreateNewLine()"><img src="img/ICONS/add.png" /></button>
+                <button class="trash-line edit-btn" onclick="onTrashLine()"><img src="img/ICONS/trash.png" /></button>
+                <button class="increase-font edit-btn" onclick="onIncreaseFont()"><img
                         src="img/ICONS/increase-font.png" /></button>
-                <button class="decrease-font" onclick="onDecreaseFont()"><img
+                <button class="decrease-font edit-btn" onclick="onDecreaseFont()"><img
                         src="img/ICONS/decrease-font.png" /></button>
-                <button class="align-left" onclick="onAlignLeft()"><img src="img/ICONS/align-to-left.png" /></button>
-                <button class="align-center" onclick="onAlignCenter()"><img
+                <button class="align-left edit-btn" onclick="onAlignLeft()"><img src="img/ICONS/align-to-left.png" /></button>
+                <button class="align-center edit-btn" onclick="onAlignCenter()"><img
                         src="img/ICONS/center-text-alignment.png" /></button>
-                <button class="align-right" onclick="onAlignRight()"><img src="img/ICONS/align-to-right.png" /></button>
+                <button class="align-right edit-btn" onclick="onAlignRight()"><img src="img/ICONS/align-to-right.png" /></button>
                 <select onchange="onSetFontFamily(this.value)" name="font-family-picker" class="font-family-picker">
+                    <option value="Impact">Change font</option>
                     <option value="Impact">Impact</option>
                     <option value="Arial">Arial</option>
                     <option value="Kdam_Thmor_Pro">Kdam Thmor Pro</option>
                     <option value="Pacifico">Pacifico</option>
                 </select>
-                <button class="stroke-color">
+                <button class="stroke-color edit-btn">
                     <label>
                         <img src="img/ICONS/text-stroke.png" />
-                        <input class="color-input" type="color" id="stroke-color"
+                        <input class="color-input" type="color"
                             onchange="onSetStrokeColor(this.value)" name="color-picker" />
                     </label>
                 </button>
-                <button class="fill-color">
+                <button class="fill-color edit-btn">
                     <label>
                         <img src="img/ICONS/paint-board-and-brush.png" />
                         <input class="color-input" type="color" onchange="onSetFillColor(this.value)"
                             name="color-picker" />
                     </label>
                 </button>
+                <button class="save"><a href="#" class="btn" onclick="onSaveMeme()">Save</a></button>
                 <button class="download"><a href="#" class="btn" onclick="onDownloadMeme(this)"
                         download="my-img.jpg">Download</a></button>
-                <button class="save"><a href="#" class="btn" onclick="onSaveMeme()">Save</a></button>
+
             </div>
         </div>
+    </div>
+    <div class="about main-layout flex align-center">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias assumenda adipisci iste dicta, eaque incidunt dolor alias praesentium sit distinctio nisi recusandae qui! Dolorum exercitationem doloribus cupiditate non expedita a.</p>
     </div>
 
 

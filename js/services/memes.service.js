@@ -179,14 +179,14 @@ function setFillColor(color, lineIdx) {
 }
 
 function setImg(photoId) {
-    gMeme.selectedImgId = photoId
-    gMeme.lines
+    gMeme.selectedImgId = +photoId
+    // gMeme.lines
 }
 
 function setLineText(text, CurrLine) {
     if (CurrLine === -1) {
         CreateNewLine()
-        gMeme.lines[0].txt = ''
+        gMeme.lines[0].txt = text
     } else {
         gMeme.lines[CurrLine].txt = text
     }
@@ -242,6 +242,8 @@ function getFocused() {
 function switchFocus(lineIdx) {
     clearFocus()
     gMeme.lines[lineIdx].isFocused = true
+    let txt = gMeme.lines[lineIdx].txt
+    document.querySelector('[name="text-input"]').value = txt
 }
 
 

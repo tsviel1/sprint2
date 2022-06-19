@@ -74,13 +74,14 @@
     }
 
     .main-header {
-        margin: 5px, 10px;
-        border-radius: 20px;
+        border-radius: 30px;
+        margin-top: 10px;
     }
+
 
     .nav-li a.active {
         background-color: #fff;
-        border-radius: 30px;
+        border-radius: 35px;
     }
 
     .gallery {
@@ -96,6 +97,10 @@
         width: 80vw;
     }
 
+    .editing-area-tools {
+        width: 400px;
+    }
+
     canvas {
         width: 400px;
         height: 400px;
@@ -104,7 +109,6 @@
     hr {
         display: none;
     }
-
 
 }
 
@@ -133,6 +137,11 @@
     .editing-area-tools {
         width: auto;
         width: 50%;
+    }
+
+    .editing-tools {
+        grid-template-columns: repeat(5, 60px);
+        gap: 20px 10px;
     }
 
 }

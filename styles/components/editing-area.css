@@ -15,30 +15,27 @@ canvas {
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
-    /* height: 300px;
-    width: 300px; */
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 .editing-area-tools {
     display: flex;
     text-align: center;
     align-items: center;
-    width: 90%;
+    width: 300px;
 }
 
 .editing-tools {
     display: grid;
-    grid-template-columns: repeat(5, 60px);
-    grid-template-rows: repeat(5, 60px);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 50px);
+    gap: 5px;
     width: 100%;
     justify-content: center;
     align-content: center;
 
-}
-
-label button {
-    height: 100%;
-    width: 100%;
 }
 
 .color-input {
@@ -49,8 +46,7 @@ label button {
 
 input[type=text] {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    margin: 4px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 12px;
@@ -58,10 +54,40 @@ input[type=text] {
     grid-column: 1/span 5;
 }
 
+
 .font-family-picker {
     grid-column: 1 / span 3;
+    border-radius: 6px;
+}
+
+.save {
+    grid-column: 1 / span 2;
+    border-radius: 6px;
+    font-size: 18px;
+    background-color: rgb(53, 53, 199);
+    border: 0 solid black;
+}
+
+.save:hover {
+    background-color: rgb(8, 8, 212);
+    cursor: pointer;
 }
 
 .download {
-    grid-column: 1 / span 5;
+    grid-column: 3 / span 3;
+    border-radius: 6px;
+    font-size: 18px;
+    background-color: rgb(187, 41, 187);
+    border: 0 solid black;
 }
+
+.download:hover {
+    background-color: rgb(165, 28, 165);
+    cursor: pointer;
+}
+
+.download a, .save a {
+    color: white;
+}
+
+

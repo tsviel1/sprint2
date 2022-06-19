@@ -9,3 +9,7 @@ function loadFromStorage() {
 	var val = localStorage.getItem(STORAGE_KEY)
 	return JSON.parse(val)
 }
+function loadFromStorage2() {
+	var val = localStorage.getItem(STORAGE_KEY)
+	return val
+}
