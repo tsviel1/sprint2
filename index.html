@@ -54,18 +54,18 @@
                     <option value="Pacifico">Pacifico</option>
                 </select>
                 <button class="stroke-color">
-                    <label for="stroke-color" class="stroke-btn">
+                    <label>
                         <img src="img/ICONS/text-stroke.png" />
+                        <input class="color-input" type="color" id="stroke-color"
+                            onchange="onSetStrokeColor(this.value)" name="color-picker" />
                     </label>
-                    <input class="color-input" type="color" id="stroke-color" onchange="onSetStrokeColor(this.value)"
-                        name="color-picker" />
                 </button>
                 <button class="fill-color">
-                    <label for="fill-color" class="stroke-btn">
+                    <label>
                         <img src="img/ICONS/paint-board-and-brush.png" />
+                        <input class="color-input" type="color" onchange="onSetFillColor(this.value)"
+                            name="color-picker" />
                     </label>
-                    <input class="color-input" type="color" id="fill-color" onchange="onSetFillColor(this.value)"
-                        name="color-picker" />
                 </button>
                 <button class="download"><a href="#" class="btn" onclick="onDownloadMeme(this)"
                         download="my-img.jpg">Download</a></button>
